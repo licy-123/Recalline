@@ -10,7 +10,7 @@ import os
 
 class ScreenCapturer:
     """
-    定时截屏处理后即时删除(删除文件的操作再主函数中)
+    定时截屏处理后即时删除(删除文件的逻辑在外部)
     interval：截屏间隔(s)
     max_captures：最大截屏次数(None代表时间无限)
     默认截屏时间间隔为1s，最大截屏次数为无限次
@@ -28,7 +28,7 @@ class ScreenCapturer:
             if self.max_captures and count >= self.max_captures:
                 break
 
-            # timestamp1是用于计算的Unix时间戳，timestamp2是用于文件名后缀的时间戳str
+            # unix_timestamp是用于计算的Unix时间戳，str_timestamp2是用于文件名后缀的时间戳str
             unix_timestamp = datetime.now().replace(microsecond=0).timestamp()
             str_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             filepath = os.path.join(self.save_dir, f"screen_capture_{str_timestamp}.png")
