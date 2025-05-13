@@ -1,0 +1,4 @@
+from screen_capture_processor import ScreenCaptureProcessor
+
+screen_capture_processor = ScreenCaptureProcessor()
+screen_capture_processor.process_screen_capture(n=3)
